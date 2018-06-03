@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<title>gpateller</title>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/perfect.css' %}">
+</head>
+
+<body>
+	<header>
+	<form action="/tr/login" method="post">{% csrf_token %}
+	<br>Kullanıcı Adı: <input class="input-style-header" type="text" name="username" size=10 value="">
+	Şifre: <input class="input-style-header" type="password" name="password" size=10 value="">
+		<input type="submit" name="login" class="btn-style" value="Giriş Yap" style="height:30px; width:80px">	
+	</form>
+	<form action="/tr/signup" method="post">{% csrf_token %}
+		<input type="submit" name="signup" class="btn-style" value="Kaydol" style="height:30px; width:60px">	
+	</form>
+	<form action="/tr" method="post">{% csrf_token %}
+		<input type="submit" name="Set Language" class="btn-style" value="TR" style="height:30px; width:30px;float:right">	
+	</form>
+	<form action="/en" method="post">{% csrf_token %}
+		<input type="submit" name="Set Language" class="btn-style" value="EN" style="height:30px; width:30px;float:right;margin-right:5px">	
+	</form>
+	<p style="color:#FF4500;padding-left:6em">{{login_err}}</p>
+	</header>
+	<div id="outline">
+	<div id="wrapper">
+		<section>
+		<h1 class="head-style">gpateller</h1><br>
+		<p class="text-style2">Üniversite not ortalaması hesaplamayı iyi biliriz.<br><br><br>
+		<script src="static/js/calculation.js" language="Javascript" type="text/javascript"></script>
+		<form method="POST">
+			<p class="text-style">Not Sistemi<br><br>
+			<div id="setting">
+				<input type="radio" id="sys1" onClick="set_format(1, 'dynamicInput');" name="gradingSystem">
+					<label for="sys1">AA, BA</label>
+				<input type="radio" id="sys2" onClick="set_format(2, 'dynamicInput');" name="gradingSystem">
+					<label for="sys2">A-, B+</label>
+				<input type="radio" id="sys3" onClick="set_format(3, 'dynamicInput');" name="gradingSystem">
+					<label for="sys3">A1, B2</label>
+			</div>
+			<br>
+			<div class="div-style1" id="dynamicInput">
+				<br>
+				Ders Adı: <input class="input-style" type="text" id="CourseNames0" name="CourseNames0" size=10 value="" maxlength="30">	
+				Kredisi: <input class="input-style" type="number" step="0.1" min="0" max="20" value=0 id="Credits0" name="Credits0" style="width: 40px;">	
+				
+				Harf Notu: 
+				<select class="input-style" name="Grades0" id="Grades0">
+					<option class="option-style" value="AA">AA</option>
+					<option class="option-style" value="BA">BA</option>
+					<option class="option-style" value="BB">BB</option>
+					<option class="option-style" value="CB">CB</option>
+					<option class="option-style" value="CC">CC</option>
+					<option class="option-style" value="DC">DC</option>
+					<option class="option-style" value="DD">DD</option>
+					<option class="option-style" value="FD">FD</option>
+					<option class="option-style" value="FF">FF</option>
+				</select>
+			</div>
+		<div class="div-style2" id="CGPADomain">
+			<br>
+			<input type="button" name="CalcCGPA" id="CalcCGPA" class="btn-style" value="1 CGPA kaç para ulan?" onClick="set_calc_cgpa();" style="height:30px; width:240px">
+		</div>
+		<br>
+		<input type="button" name="Remove" class="btn-style" value="-" onClick="removeInput('dynamicInput');" style="height:30px; width:34px">
+		<input type="button" name="Add" class="btn-style" value="+" onClick="addInput('dynamicInput');" style="height:30px; width:34px">
+		<input type="button" name="Calc" class="btn-style" value="Hesapla" onClick="calc();" style="height:30px; width:100px">
+		<input type="hidden" name="entry_count" id="entry_count" value=1>
+		<input type="hidden" name="calc_cgpa" id="calc_cgpa" value=0>
+		</form>
+		<br><br><br>
+		<p class="text-style">Fırsat Günleri...
+		<br><br><p class="text-style2">Hesaplamalarını kaydetmek mi istiyorsun? O zaman <a href="/tr/signup"><font color="#ff8c00">üye ol!</font></a></p>
+		</section>
+	</div>
+	</div>
+	<footer>
+	<p>Coded by Cugu &copy 2015</p>
+	</footer>
+</body>
+
+<!-- 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65894512-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+	var sc_project=10555878; 
+	var sc_invisible=1; 
+	var sc_security="477da991"; 
+	var scJsHost = (("https:" == document.location.protocol) ?
+	"https://secure." : "http://www.");
+	document.write("<sc"+"ript type='text/javascript' src='" +
+	scJsHost+
+	"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="hits counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/10555878/0/477da991/1/"
+alt="hits counter"></a></div></noscript>
+
+-->
+
+</html> 
