@@ -7,4 +7,4 @@ The website is long-dead due to [insufficient funds](https://www.youtube.com/wat
 
 This repository is created for backup. 
 
-I do not remember the Django version I used for this project, and I do not know what changed in Django since then.
+I have no idea about the Django version I used for this project, or what changed in Django since then.
