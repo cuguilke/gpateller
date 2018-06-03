@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<title>gpateller | Kaydol</title>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</head>
+
+<body>
+	<header>
+		<h1>Gel Hele Gel</h1>	
+	</header>
+	<form id="signup" action="/tr/signupp" method="post">{% csrf_token %}
+		<h1>gpateller sizi selamlar!</h1>
+		<p>{{err_message}}</p>
+		<input type="input" placeholder="Kullanıcı Adı" required="" name="username">
+		<input type="password" placeholder="Şifre" required="" name="password">
+		<input type="email" placeholder="E-posta Adresi" required="" name="email">				
+		<button type="submit" name="signup" value="Sign Up">Kaydol!</button>	
+	</form>
+</body>
+
+</html> 
+
+
+
+
+
+
+		
+ 
