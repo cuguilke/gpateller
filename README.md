@@ -1,5 +1,6 @@
 # gpateller.com
 Website to calculate/save/load college GPA.
+
 Powered by Python & Django.
 
 The website is long-dead due to [insufficient funds](https://www.youtube.com/watch?v=fEzHttCKR8s).
