@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gpateller | Sign Up</title>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</head>
+
+<body>
+	<header>
+		<h1>Hello World!</h1>	
+	</header>
+	<form id="signup" action="/en/signupp" method="post">{% csrf_token %}
+		<h1>Welcome to gpateller!</h1>
+		<p>{{err_message}}</p>
+		<input type="input" placeholder="Username" required="" name="username">
+		<input type="password" placeholder="Password" required="" name="password">
+		<input type="email" placeholder="E-mail Address" required="" name="email">				
+		<button type="submit" name="signup" value="Sign Up">Sign Up!</button>	
+	</form>
+</body>
+
+</html> 
+
+
+
+
+
+
+		
+ 
